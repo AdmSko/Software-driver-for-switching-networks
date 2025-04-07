@@ -1,0 +1,40 @@
+
+<ekran_glowny>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 40
+        padding: 20
+
+        Label
+            text: 'Zadaj strukturę'
+            font_size: 35
+
+        Button:
+            text: ('Struktura Closa')
+            id: structure_clos
+            #przy kliknieciu tworzy popupa proszącego o parametry
+            on_release:
+                root.przygotuj_popup_wprowadzenie_danych()
+
+        Button:
+            text: ('Struktura Benesa')
+            id: structure_benes
+            on_release:
+                root.pokaz_popup_benes()
+                app.root.transition.direction = 'left'
+                #jezeli zostanie wdrozony - odkomentowac
+                #root.przygotuj_popup_wprowadzenie_danych
+
+        Button:
+            text: ('Struktura Cantora')
+            id: structure_cantor
+            on_release:
+                root.pokaz_popup_cantor()
+                app.root.transition.direction = 'left'
+                #jezeli zostanie wdrozony - odkomentowac
+                #root.przygotuj_popup_wprowadzenie_danych
+        Button:
+            text: ('Wyjdź')
+            id: exit_program
+            on_release:
+                exit(0)

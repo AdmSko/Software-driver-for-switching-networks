@@ -1,0 +1,70 @@
+<ekran_zadan>:
+    GridLayout:
+        cols: 2
+
+        #BoxLayout dla strony lewej
+        BoxLayout:
+			orientation: 'vertical'
+			spacing: 20
+			padding: 20
+
+            Label
+                text: 'Menu zadań'
+                font_size: 35
+
+            Button:
+                text: ('Zestaw połączenie')
+                id: connect_connection
+                #przy kliknieciu tworzy popupa proszącego o parametry
+                on_release:
+                    root.pokaz_popup_nowe_polaczenie()
+
+            Button:
+                text: ('Rozłącz połączenie')
+                id: disconnect_connection
+                on_release:
+                    root.pokaz_popup_rozlacz_polaczenie()
+
+
+            Button:
+                text: ('Tablica połączeń')
+                id: connected_list
+                on_release:
+                    root.pokaz_popup_tablica_polaczen(True)
+
+            Button:
+                text: ('Wyświetl konkretne połączenie')
+                id: connected_one
+                on_release:
+                    root.pokaz_popup_tablica_polaczen(False)
+
+            Button:
+                text: ('Wyświetl stan pola')
+                id: show_structure
+                on_release:
+                    root.pokaz_stan_struktury()
+            Button:
+                text: ('Powrót do menu głównego')
+                id: back_to_main_menu
+                on_release:
+                    root.restartowanie_ekranu()
+                    app.root.current = '-ekran_glowny-'
+
+        # prawa strona ekranu
+        GridLayout:
+            id:grid_layout
+		    cols: 3
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 15
+                padding: 15
+
+                TextInput:
+                    id: text_input
+                    multiline: True
+                    readonly: True
+                    scrollbar_width: 10
+                    scrollbar_color: [1, 1, 1, 1]
+                    background_normal: ''
+                    background_active: ''
